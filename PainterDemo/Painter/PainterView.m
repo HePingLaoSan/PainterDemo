@@ -11,14 +11,13 @@
 
 @interface PainterView()
 
-@property (nonatomic, strong) UIBezierPath * path;
 @property (nonatomic, strong) PainterDrawing * slayer;
 
-@property (nonatomic, strong) NSMutableArray *pathArray;
 @property (nonatomic, strong) NSMutableArray *redoStates;
 @property (nonatomic, strong) NSMutableArray *undoStates;
 
 @property (nonatomic, assign) ActionType currentType;
+
 
 @end
 
@@ -27,72 +26,53 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    _pathArray = [NSMutableArray arrayWithCapacity:0];
+    _drawingManager = [[PainterDrawingManager alloc]initWithHostView:self];
+    self.clipsToBounds = YES;
 }
 
 
 #pragma mark - Public
 
--(BOOL)canRedo{
-    return YES;
-}
-
 -(void)redo{
-    [self.pathArray.lastObject removeFromSuperlayer];
-
-}
-
--(BOOL)canUndo{
-    return YES;
+    [_drawingManager redo];
 }
 
 -(void)undo{
-    [self.pathArray.lastObject removeFromSuperlayer];
-    [self.pathArray removeLastObject];
+    [_drawingManager undo];
 }
 
 
 #pragma mark - Draw 
+CGPoint startP;
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    CGPoint startP = [self pointWithTouches:touches];
+    startP = [self pointWithTouches:touches];
+    _drawingManager.startPoint = startP;
+    _drawingManager.currentType = _currentType;
     
     if ([event allTouches].count == 1) {
-        
-        PainterDrawing *painterLayer = [PainterDrawing initialWithType:_currentType startPoint:startP];
-        _path = painterLayer.bezierPath;
-        
-        [self.layer addSublayer:painterLayer];
-        _slayer = painterLayer;
-        [_pathArray addObject:painterLayer];
-//        [[self mutableArrayValueForKey:@"canceledLines"] removeAllObjects];
-//        [[self mutableArrayValueForKey:@"lines"] addObject:_slayer];
-        
+        [_drawingManager touchBegan:[self pointWithTouches:touches]];
     }
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     // 获取移动点
-    CGPoint moveP = [self pointWithTouches:touches];
     
     if ([event allTouches].count > 1){
         
         [self.superview touchesMoved:touches withEvent:event];
         
     }else if ([event allTouches].count == 1) {
-        
-        [_slayer moveToPoint:moveP];
-
-        
+        [_drawingManager touchMove:[self pointWithTouches:touches]];
     }
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
+    [_drawingManager touchEnd:[self pointWithTouches:touches]];
 }
 
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
+    [_drawingManager touchEnd:[self pointWithTouches:touches]];
 }
 
 // 根据touches集合获取对应的触摸点
@@ -105,12 +85,17 @@
 
 #pragma mark - mode changed
 -(void)selectedActionType:(ActionType)type{
-    _currentType = type;
+    if (type==ActionTypeUndo || type==ActionTypeRedo) {
+    }else{
+        _currentType = type;
+    }
     switch (type) {
         case ActionTypeUndo:
             [self undo];
             break;
-            
+        case ActionTypeRedo:
+            [self redo];
+            break;
         default:
             break;
     }

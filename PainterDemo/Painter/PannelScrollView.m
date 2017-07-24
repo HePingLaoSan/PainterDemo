@@ -23,6 +23,12 @@
     _selectedType = ActionTypePencil;
     [_panneldelegate selectedActionType:_selectedType];
 }
+
+-(IBAction)clickedCrayon:(id)sender{
+    _selectedType = ActionTypeCrayon;
+    [_panneldelegate selectedActionType:_selectedType];
+}
+
 -(IBAction)clickedCircle:(id)sender{
     _selectedType = ActionTypeCircle;
     [_panneldelegate selectedActionType:_selectedType];
@@ -47,7 +53,6 @@
     _selectedType = ActionTypeRedo;
     [_panneldelegate selectedActionType:_selectedType];
 }
-
 
 
 @end

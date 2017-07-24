@@ -23,14 +23,21 @@
     
     _pannelView.panneldelegate = _painterView;
     
+    [_painterView.drawingManager addObserver:self forKeyPath:@"canUndo" options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld) context:nil];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"canUndo"]) {
+        BOOL newValue = [change[@"new"]boolValue];
+        _pannelView.undoBtn.enabled = newValue;
+    }
+}
 
 @end

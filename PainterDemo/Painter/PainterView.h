@@ -8,16 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "PannelScrollView.h"
-
+#import "PainterDrawingManager.h"
 
 @interface PainterView : UIView<PannelScrollViewDelegate>
 
-
--(BOOL)canUndo;
+@property (nonatomic, strong) PainterDrawingManager *drawingManager;
 
 -(void)undo;
-
--(BOOL)canRedo;
 
 -(void)redo;
 

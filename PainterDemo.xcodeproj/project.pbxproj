@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4006CFDB1F25DE7200B6E719 /* PencilTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4006CFDA1F25DE7200B6E719 /* PencilTexture.png */; };
 		40070D681F21FD0E006C306E /* PainterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40070D671F21FD0E006C306E /* PainterView.m */; };
 		40070D6B1F22070E006C306E /* PainterDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 40070D6A1F22070E006C306E /* PainterDrawing.m */; };
 		40CD4C3E1F21F9DA0085E458 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CD4C3D1F21F9DA0085E458 /* main.m */; };
@@ -17,9 +18,11 @@
 		40CD4C4C1F21F9DC0085E458 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40CD4C4A1F21F9DC0085E458 /* LaunchScreen.storyboard */; };
 		40CD4C561F21FAAA0085E458 /* PannelScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CD4C551F21FAAA0085E458 /* PannelScrollView.m */; };
 		40CD4C591F21FAB40085E458 /* ColorScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CD4C581F21FAB40085E458 /* ColorScrollView.m */; };
+		40F826AC1F259C0200489AF3 /* PainterDrawingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F826AB1F259C0200489AF3 /* PainterDrawingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4006CFDA1F25DE7200B6E719 /* PencilTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PencilTexture.png; sourceTree = "<group>"; };
 		40070D661F21FD0E006C306E /* PainterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PainterView.h; sourceTree = "<group>"; };
 		40070D671F21FD0E006C306E /* PainterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PainterView.m; sourceTree = "<group>"; };
 		40070D691F22070E006C306E /* PainterDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PainterDrawing.h; sourceTree = "<group>"; };
@@ -38,6 +41,9 @@
 		40CD4C551F21FAAA0085E458 /* PannelScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PannelScrollView.m; sourceTree = "<group>"; };
 		40CD4C571F21FAB40085E458 /* ColorScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorScrollView.h; sourceTree = "<group>"; };
 		40CD4C581F21FAB40085E458 /* ColorScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorScrollView.m; sourceTree = "<group>"; };
+		40F826AA1F259C0200489AF3 /* PainterDrawingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PainterDrawingManager.h; sourceTree = "<group>"; };
+		40F826AB1F259C0200489AF3 /* PainterDrawingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PainterDrawingManager.m; sourceTree = "<group>"; };
+		40F826AD1F25A04700489AF3 /* PainterKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PainterKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		40CD4C531F21FA860085E458 /* Painter */ = {
 			isa = PBXGroup;
 			children = (
+				4006CFDA1F25DE7200B6E719 /* PencilTexture.png */,
 				40CD4C541F21FAAA0085E458 /* PannelScrollView.h */,
 				40CD4C551F21FAAA0085E458 /* PannelScrollView.m */,
 				40CD4C571F21FAB40085E458 /* ColorScrollView.h */,
@@ -103,6 +110,9 @@
 				40070D671F21FD0E006C306E /* PainterView.m */,
 				40070D691F22070E006C306E /* PainterDrawing.h */,
 				40070D6A1F22070E006C306E /* PainterDrawing.m */,
+				40F826AA1F259C0200489AF3 /* PainterDrawingManager.h */,
+				40F826AB1F259C0200489AF3 /* PainterDrawingManager.m */,
+				40F826AD1F25A04700489AF3 /* PainterKit.h */,
 			);
 			path = Painter;
 			sourceTree = "<group>";
@@ -166,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4006CFDB1F25DE7200B6E719 /* PencilTexture.png in Resources */,
 				40CD4C4C1F21F9DC0085E458 /* LaunchScreen.storyboard in Resources */,
 				40CD4C491F21F9DC0085E458 /* Assets.xcassets in Resources */,
 				40CD4C471F21F9DB0085E458 /* Main.storyboard in Resources */,
@@ -183,6 +194,7 @@
 				40CD4C591F21FAB40085E458 /* ColorScrollView.m in Sources */,
 				40CD4C561F21FAAA0085E458 /* PannelScrollView.m in Sources */,
 				40CD4C441F21F9DB0085E458 /* ViewController.m in Sources */,
+				40F826AC1F259C0200489AF3 /* PainterDrawingManager.m in Sources */,
 				40CD4C411F21F9DB0085E458 /* AppDelegate.m in Sources */,
 				40CD4C3E1F21F9DA0085E458 /* main.m in Sources */,
 				40070D6B1F22070E006C306E /* PainterDrawing.m in Sources */,

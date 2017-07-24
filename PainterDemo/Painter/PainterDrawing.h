@@ -7,16 +7,38 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PainterKit.h"
 
 
 @interface PainterDrawing : CAShapeLayer
 
 @property (nonatomic, strong)UIBezierPath *bezierPath;
 
-+(instancetype)initialWithType:(int)type startPoint:(CGPoint)startP;
+/**
+ Pen
+ */
++(instancetype)initialPenWithStartPoint:(CGPoint)startP;
 
+/**
+ Crayon
+ */
++(instancetype)initialCrayonWithStartPoint:(CGPoint)startP;
 
--(void)moveToPoint:(CGPoint)endPoint;
+/**
+ Rounded
+ */
++(instancetype)initialOvalInRectWithStartPoint:(CGPoint)startP endPoint:(CGPoint)endP;
+
+/**
+ Rect
+ */
++(instancetype)initialRectWithStartPoint:(CGPoint)startP endPoint:(CGPoint)endP;
+
+/**
+ Eraser
+ */
++(instancetype)initialEraserWithStartPoint:(CGPoint)startP;
+
 
 @end
 

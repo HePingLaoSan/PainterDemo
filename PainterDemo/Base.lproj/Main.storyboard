@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnc-6z-SM1">
-                                                <rect key="frame" x="8" y="15" width="46" height="30"/>
+                                                <rect key="frame" x="2" y="15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="笔"/>
                                                 <connections>
@@ -36,7 +36,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1X6-P9-BZu">
-                                                <rect key="frame" x="61" y="15" width="46" height="30"/>
+                                                <rect key="frame" x="98" y="15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="圆形"/>
                                                 <connections>
@@ -44,7 +44,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhY-9s-INH">
-                                                <rect key="frame" x="127" y="15" width="46" height="30"/>
+                                                <rect key="frame" x="155" y="15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="矩形"/>
                                                 <connections>
@@ -52,7 +52,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y31-p4-8SQ">
-                                                <rect key="frame" x="192" y="15" width="46" height="30"/>
+                                                <rect key="frame" x="214" y="15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="橡皮"/>
                                                 <connections>
@@ -60,7 +60,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ni-zR-l8x">
-                                                <rect key="frame" x="257" y="15" width="46" height="30"/>
+                                                <rect key="frame" x="273" y="15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Undo"/>
                                                 <connections>
@@ -68,11 +68,19 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmQ-lg-ivG">
-                                                <rect key="frame" x="321" y="15" width="46" height="30"/>
+                                                <rect key="frame" x="327" y="15" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Redo"/>
                                                 <connections>
                                                     <action selector="clickedRedo:" destination="d0m-1z-x41" eventType="touchUpInside" id="Zao-Ii-bYD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxT-UP-Kox">
+                                                <rect key="frame" x="49" y="15" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="蜡笔"/>
+                                                <connections>
+                                                    <action selector="clickedCrayon:" destination="d0m-1z-x41" eventType="touchUpInside" id="143-rK-zSv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -88,7 +96,14 @@
                                     <constraint firstAttribute="height" constant="60" id="etg-GE-2Ya"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="circleBtn" destination="1X6-P9-BZu" id="h0k-7m-tPb"/>
                                     <outlet property="containerView" destination="7s8-LX-Vbz" id="JLX-Uq-aRl"/>
+                                    <outlet property="crayonBtn" destination="sxT-UP-Kox" id="PuZ-lb-g0K"/>
+                                    <outlet property="eraserBtn" destination="y31-p4-8SQ" id="cFz-l3-zdu"/>
+                                    <outlet property="pencilBtn" destination="Hnc-6z-SM1" id="xLf-gt-DKT"/>
+                                    <outlet property="rectBtn" destination="JhY-9s-INH" id="Jeg-V7-KIf"/>
+                                    <outlet property="redoBtn" destination="bmQ-lg-ivG" id="iIb-Qh-aH4"/>
+                                    <outlet property="undoBtn" destination="4ni-zR-l8x" id="Jsi-4W-eR7"/>
                                 </connections>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkZ-wL-TkO" customClass="ColorScrollView">

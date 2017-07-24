@@ -7,17 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
-typedef NS_ENUM(NSUInteger, ActionType) {
-    ActionTypePencil = 0,
-    ActionTypeCircle,
-    ActionTypeRect,
-    ActionTypeEraser,
-    ActionTypeUndo,
-    ActionTypeRedo
-};
-
+#import "PainterKit.h"
 
 @protocol PannelScrollViewDelegate <NSObject>
 
@@ -33,8 +23,21 @@ typedef NS_ENUM(NSUInteger, ActionType) {
 
 @property (weak, nonatomic) IBOutlet UIView * containerView;
 
-@property (nonatomic, weak) id<PannelScrollViewDelegate> panneldelegate;
+@property (weak, nonatomic) IBOutlet UIButton * pencilBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton * crayonBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton * circleBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton * rectBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton * eraserBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton * undoBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton * redoBtn;
+
+@property (nonatomic, weak) id<PannelScrollViewDelegate> panneldelegate;
 
 
 @end
